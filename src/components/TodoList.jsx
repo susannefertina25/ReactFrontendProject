@@ -3,12 +3,12 @@ import axios from 'axios';
 
 function TodoList({ todos, setTodos }) {
     const handleDelete = async (id) => {
-        await axios.delete(`http://localhost:8000/api/todos/${id}/`);
+        await axios.delete(`https://backenddjangoproject.onrender.com/api/todos/${id}/`);
         setTodos(todos.filter(todo => todo.id !== id));
     };
 
     const toggleComplete = async (todo) => {
-        const response = await axios.put(`http://localhost:8000/api/todos/${todo.id}/`, {
+        const response = await axios.put(`https://backenddjangoproject.onrender.com/api/todos/${todo.id}/`, {
             ...todo,
             completed: !todo.completed
         });
